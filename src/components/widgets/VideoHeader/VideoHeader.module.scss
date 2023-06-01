@@ -1,0 +1,141 @@
+.video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #2caee3;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(40, 40, 50, 0.8);
+  }
+
+  & video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.intro {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  & h3{
+      color: white;
+      text-transform: uppercase;
+      font-size: 4rem;
+      text-align: center;
+      padding: 0 3rem;
+      line-height: 4rem;
+  }
+
+  &>div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+    width: 100%;
+
+    &>span {
+      color: #fff;
+      font-size: 4rem;
+      margin: 0 1.5rem;
+      font-weight: 200;
+    }
+  }
+
+  & button {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 3px solid;
+    cursor: pointer;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+
+    &:hover {
+      border-color: #fff !important;
+
+      & .bar {
+        background-color: #fff !important;
+      }
+    }
+
+    & .icon_wrapper {
+      position: relative;
+      transform: translate(-2rem, -2.6rem);
+    }
+
+    &.pause {
+      & .bar_1 {
+        transform: translateX(11px) translateY(0px) rotate(0deg);
+      }
+
+      & .bar_2 {
+        transform: translateX(26px) translateY(0px) rotate(0deg);
+      }
+    }
+
+    &.play {
+      & .bar_1 {
+        transform: translateX(20px) translateY(-8px) rotate(-55deg);
+      }
+
+      & .bar_2 {
+        transform: translateX(20px) translateY(8px) rotate(-125deg);
+      }
+    }
+  }
+
+  .bar {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 3px;
+    height: 30px;
+    border-radius: 3px;
+    transform-origin: center;
+    transition: transform 0.4s ease, background 0.5s ease;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro>div {
+    flex-wrap: wrap;
+  }
+
+  .intro h3{
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .intro>div>span {
+    font-size: 3rem;
+  }
+
+  .intro button {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .intro h3{
+    font-size: 2rem;
+  }
+}
